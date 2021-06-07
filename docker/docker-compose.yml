@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+    app:
+        build:
+            context: ..
+            dockerfile: ./docker/Dockerfile
+        ports:
+            - 127.0.0.1:3000:3000
+        command: "dockerize
+                  -wait tcp://mongo:27017
+                  -timeout 60s
+                  npm run start-dev"
+        volumes:
+            - ../src:/app
+        tty: true
+        depends_on:
+            - mongo
+        restart: "no"
+
+    mongo:
+        image: mongo:4.4
+        ports:
+            - 27017:27017
+        volumes:
+            - mongo_db:/data/db
+        restart: "no"
+
+volumes:
+    mongo_db:
