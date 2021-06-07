@@ -8,7 +8,9 @@ node: 14-slim
 
 # node + mongo
 ```
-自力で node + mongodbの環境をdockerizeを使いながらdocker-composeで立ち上げられるかチャレンジのためのレポジトリです。普通にできました。見所はdockerizeのインストールのRUNの部分です。
+自力で node + mongodbの環境をdockerizeを使いながらdocker-composeで
+立ち上げられるかチャレンジのためのレポジトリです。普通にできました。
+見所はdockerizeのインストールのRUNの部分です。
 ```
 
 
