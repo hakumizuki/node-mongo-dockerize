@@ -10,7 +10,7 @@ services:
         command: "dockerize
                   -wait tcp://mongo:27017
                   -timeout 60s
-                  npm run start-dev"
+                  npm run dev"
         volumes:
             - ../src:/app
         tty: true

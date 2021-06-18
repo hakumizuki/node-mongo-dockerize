@@ -1,10 +1,12 @@
 'use strict';
 
 const express = require('express');
+const dotenv = require('dotenv')
+dotenv.config({ path: '../config/config.env' })
 const app = express();
-const PORT = 3000;
-const DB_PORT = 27017;
-const HOST = '0.0.0.0';
+const PORT = process.env.PORT || 3000;
+const DB_PORT = process.env.DB_PORT;
+const HOST = process.env.HOST;
 
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
@@ -43,5 +45,5 @@ app.get('/', async (req, res) => {
 });
 
 app.listen(PORT, HOST, () => {
-    console.log(`App listening at http://${HOST}:${PORT}`);
+    console.log(`App listening at http://${HOST}:${PORT} (${process.env.NODE_ENV})`);
 });
